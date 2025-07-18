@@ -13,7 +13,7 @@ class TcpServer:
 
     async def run(self):
         port = 8888
-        server = await asyncio.start_server(self.handle_peer, "127.0.0.1", port)
+        server = await asyncio.start_server(self.handle_peer, "0.0.0.0", port)
         self._broadcast_tx_queue = asyncio.Queue()
         self._broadcast_tx_task_handle = asyncio.create_task(
             self._broadcast_tx_task_func()
